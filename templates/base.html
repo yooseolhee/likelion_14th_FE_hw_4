@@ -1,0 +1,40 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ BRAND_NAME }}{% endblock %}</title>
+
+  {# Pretendard 폰트 (CDN) #}
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  {# JetBrains Mono (Google Fonts) — 코드와 메타 텍스트용 #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
+  <link rel="stylesheet" href="{% static 'css/components.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+<div class="page">
+
+  {# 상단 네비게이션 — 모든 페이지에서 공유 #}
+  {% include 'shared/_navbar.html' %}
+
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {# 하단 푸터 — 모든 페이지에서 공유 #}
+  {% include 'shared/_footer.html' %}
+
+</div>
+
+<script src="{% static 'js/site.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

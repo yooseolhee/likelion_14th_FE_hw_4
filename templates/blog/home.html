@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ BRAND_NAME }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<div class="Hero">
+    <div class="Hero-inner">
+    <div>
+        <span class="Hero-welcome">
+            welcome · 환영합니다
+        </span>
+
+        <span class="Hero-date">
+            — 2026, week 18
+        </span>
+    </div>
+
+    <div class="Hero-title">
+        기록하는 일이<br>성장이 되는 곳<span class="Hero-title-dot">.</span>
+    </div>
+
+    <div class="Hero-subtitle">
+        아기사자(BL)가 매일 조금씩 적어가는 노트입니다.<br>
+        기술, 프로젝트, 그리고 평범한 하루의 단상까지 — 천천히 쌓아 둡니다.
+    </div>
+
+    <div class="Hero-button">
+        <button class="Hero-button-recent">
+            최신 글 읽기 →
+        </button>
+        <button class="Hero-button-about">
+            about
+        </button>
+        <button class="Hero-button-RSS">
+            RSS
+        </button>
+    </div>
+    <br>
+    <div class="Hero-footer">
+        <span class="Hero-footer-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+            <circle cx="4" cy="4" r="4" fill="#E8794A"/>
+        </svg>
+        </span>
+        <span class="Hero-now-writing">now writing</span>
+        <span class="Hero-now-writing-title">디자인 토큰 시리즈 6편</span>
+    </div>
+    </div>
+</div>
+
+<div class="todayNote">
+    <div class="todayNote-inner">
+        <div class="todayNote-title">
+            <span class="todayNote-title-frame">
+                <span class="todayNote-title-num">01</span>
+                <span class="todayNote-title-str">오늘의 노트</span>
+            </span>
+            <span class="todayNote-title-link">see all →</span>
+        </div>
+        <div class="todayNote-card">
+            <div class="todayNote-card-1">
+                <div class="todayNote-card-1-img">
+                    손에 익는 디자인 시스템 · cover
+                </div>
+                <div class="todayNote-card-1-content">
+                    <div class="todayNote-card-1-content-frame">
+                        <span class="todayNote-card-1-content-frame-fe">Frontend</span>
+                        <span class="todayNote-card-1-content-frame-series">series · 5/8</span>
+                        <span class="todayNote-card-1-content-frame-date">2026.04.28 · 8 min</span>
+                    </div>
+                    <div class="todayNote-card-1-content-title">손에 익는 디자인 시스템 만들기</div>
+                    <div class="todayNote-card-1-content-subtitle">토큰을 짓는 일은 결국 이름을 짓는 일이다. 작은 결정에 이름을 붙이는 일 — 그게 시스템이다.</div>
+                    <div class="todayNote-card-1-content-link">이어 읽기 →</div>
+                </div>
+            </div>
+            <div class="todayNote-card-2">
+                <span class="todayNote-card-2-latest">LATEST · 최근 5편</span>
+                <div class="todayNote-card-2-list">
+                    <div class="todayNote-card-2-list-frame">
+                        <span class="todayNote-card-2-label">TypeScript</span>
+                        <span class="todayNote-card-2-date">04.21</span>
+                    </div>
+                    <div class="todayNote-card-2-list-title">tRPC와 함께한 1년: 좋았던 것, 불편했던 것</div>
+                </div>
+                <div class="todayNote-card-2-list">
+                    <div class="todayNote-card-2-list-frame">
+                        <span class="todayNote-card-2-label">Frontend</span>
+                        <span class="todayNote-card-2-date">04.14</span>
+                    </div>
+                    <div class="todayNote-card-2-list-title">CSS Container Queries, 결국 쓰게 되더라</div>
+                </div>
+                <div class="todayNote-card-2-list">
+                    <div class="todayNote-card-2-list-frame">
+                        <span class="todayNote-card-2-label">AI</span>
+                        <span class="todayNote-card-2-date">04.07</span>
+                    </div>
+                    <div class="todayNote-card-2-list-title">Vibe coding 다음 단계 — 워크플로우 만들기</div>
+                </div>
+                <div class="todayNote-card-2-list">
+                    <div class="todayNote-card-2-list-frame">
+                        <span class="todayNote-card-2-label">Performance</span>
+                        <span class="todayNote-card-2-date">03.30</span>
+                    </div>
+                    <div class="todayNote-card-2-list-title">React 19 컴파일러로 useMemo를 지웠다</div>
+                </div>
+                <div class="todayNote-card-2-list">
+                    <div class="todayNote-card-2-list-frame">
+                        <span class="todayNote-card-2-label">Series · DS</span>
+                        <span class="todayNote-card-2-date">03.22</span>
+                    </div>
+                    <div class="todayNote-card-2-list-title">디자인 토큰을 코드로 옮기는 5가지 방법</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

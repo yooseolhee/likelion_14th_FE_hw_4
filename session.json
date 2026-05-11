@@ -1,0 +1,53 @@
+{
+  "curriculum": {
+    "title": "동국대학교 멋쟁이사자처럼 14기 1학기 교육 요약",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "개발 환경 구축 및 협업의 기초",
+        "topics": [
+          "Git의 원리: Add, Commit, Push, Pull을 통한 버전 관리 이해 [cite: 2398, 2404]",
+          "GitHub 협업: 중앙 저장소 Fork, 개인 레포지토리 연결, Pull Request 및 Merge 프로세스 [cite: 2439, 2441]",
+          "Django 설치: 가상환경(venv) 설정 및 Django 프로젝트/앱 구조 생성 [cite: 2555, 2565]"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Django 기초 및 MTV 패턴",
+        "topics": [
+          "MTV 패턴 이해: Model(데이터), Template(화면), View(로직)의 상호작용 [cite: 1024]",
+          "URL 및 View 작성: 특정 경로에 대해 View 함수를 호출하고 HTML을 렌더링하는 법 [cite: 1030, 1035]",
+          "Template 언어: 변수 사용, 반복문(for), 조건문(if), Template 상속 및 include [cite: 1057, 1081]",
+          "정적 파일 관리: CSS 및 Image 파일을 static 폴더로 분리하여 적용하는 방법 [cite: 1108, 1113]"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "HTML/CSS 심화 및 레이아웃",
+        "topics": [
+          "HTML 구조적 사고: 웹 페이지의 뼈대를 구성하는 시맨틱 태그 및 요소 이해 [cite: 114, 115]",
+          "CSS Flexbox: 단방향 레이아웃 시스템(Main Axis, Cross Axis, 정렬 속성) [cite: 31, 33]",
+          "CSS Grid: 2차원 레이아웃 시스템(Template Rows/Columns, Area 지정) [cite: 48, 58]"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "반응형 웹 및 JavaScript 기초",
+        "topics": [
+          "미디어 쿼리(Media Query): 뷰포트 너비에 따른 반응형 텍스트 및 레이아웃 구현",
+          "CSS Animation: @keyframes와 transition을 활용한 동적 UI 효과",
+          "JavaScript 기초: 변수, 조건문, 반복문, 함수 정의 및 기본적인 동적 제어"
+        ]
+      },
+      {
+        "week": 5,
+        "title": "JavaScript 심화 및 DOM 제어",
+        "topics": [
+          "DOM(Document Object Model): HTML 문서의 계층 구조 및 DOM 트리 이해 [cite: 5212, 5213]",
+          "DOM API: getElementById, querySelector 등을 통한 노드 선택 및 조작 [cite: 5220, 5224]",
+          "JS 객체 및 이벤트: 객체의 프로퍼티와 메서드 활용, addEventListener를 이용한 클릭/입력 처리 [cite: 5232, 5244]"
+        ]
+      }
+    ]
+  }
+}
