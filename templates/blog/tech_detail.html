@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}{{ post.title }} · {{ BRAND_NAME }}{% endblock %}
 
 {% block content %}
@@ -9,34 +10,28 @@
 <div class="post">
     <div class="post-index">
         <div class="post-index-title">ON THIS PAGE</div>
-        <div class="post-index-list-select">1. 토큰이란</div>
-        <div class="post-index-list-unselect">2. 단위 결정</div>
-        <div class="post-index-list-unselect">3. 빌드 파이프라인</div>
-        <div class="post-index-list-unselect">4. 마무리</div>
+        <div class="post-index-list-select">1. {{sections.1.text}}</div>
+        <div class="post-index-list-unselect">2. {{sections.5.text}}</div>
+        <div class="post-index-list-unselect">3. {{sections.7.text}}</div>
+        <div class="post-index-list-unselect">4. {{sections.9.text}}</div>
     </div>
     <div class="post-inner">
         <div class="post-header-frame">
-            <span class="post-header-frame-fe">Frontend</span>
-            <span class="post-header-frame-date">2026.04.28 · 8 min · series 5/8</span>
+            <span class="post-header-frame-fe">{{post.category.label}}</span>
+            <span class="post-header-frame-date">{{post.date_display}} · {{post.read_minutes}} min · {{post.series_label}}</span>
         </div>
-        <div class="post-header-title">손에 익는 디자인 시스템 만들기</div>
-        <div class="post-header-subtitle"> Designing a system that fits the hand — tokens, units, and the boring middle.</div>
+        <div class="post-header-title">{{post.title}}</div>
+        <div class="post-header-subtitle"> {{post.subtitle}} — tokens, units, and the boring middle.</div>
         <hr class="post-header-line">
-        <div class="post-content-description">디자인 시스템을 처음 만들 때, 저는 컴포넌트부터 시작했어요. 버튼, 키드, 입력 필드. 그러다 알았죠. <span class="post-content-description-color">토큰이 없는 컴포넌트는 짐</span>이라는 걸요.</div>
-        <div class="post-content-title">1. 토큰이란</div>
-        <div class="post-content-str">토큰은 디자인 결정에 이름을 붙이는 일이에요. <span class="post-content-str-code">--accent</span>는 "주황색"이 아니라 "강조되는 무엇"을 의미하죠.</div>
+        <div class="post-content-description">{{sections.0.text}}</div>
+        <div class="post-content-title">1. {{sections.1.text}}</div>
+        <div class="post-content-str">{{sections.2.text}}</div>
         <div class="post-content-code">
-            <span class="post-content-code-str">
-                :root {<br>
-                    --accent: #E8794A;       /* terracotta · primary */<br>
-                    --accent-hover: #C95A2C; /* deeper rust */<br>
-                    --bg-page: #F5EDE0;      /* page · soft beige */<br>
-                }
-            </span>
+            <pre class="post-content-code-str">{{sections.3.text}}</pre>
         </div>
-        <div class="post-content-str">이름을 잘 붙이면, 색을 바꾸는 일이 의미를 바꾸는 일이 됩니다. 그게 시스템이에요.</div>
+        <div class="post-content-str">{{sections.4.text}}</div>
         <hr class="post-header-line">
-        <div class="post-comments-num">comments · 4</div>
+        <div class="post-comments-num">comments · {{post.comment|length}}</div>
         <div class="post-comments-post">
             <div class="post-comments-description">
                 <span class="post-comments-login-str">댓글을 남기려면 로그인이 필요해요</span>
@@ -70,19 +65,19 @@
         <span class="post-information-title">META</span>
         <div class="post-information-match">
             <span class="post-information-l">author</span>
-            <span class="post-information-r">아기사자</span>
+            <span class="post-information-r">{{post.author}}</span>
         </div>
         <div class="post-information-match">
             <span class="post-information-l">edited</span>
-            <span class="post-information-r">2026.04.29</span>
+            <span class="post-information-r">{{post.edited_display}}</span>
         </div>
         <div class="post-information-match">
             <span class="post-information-l">views</span>
-            <span class="post-information-r">1,284</span>
+            <span class="post-information-r">{{post.views}}</span>
         </div>
         <div class="post-information-match">
             <span class="post-information-l">license</span>
-            <span class="post-information-r">CC BY 4.0</span>
+            <span class="post-information-r">{{post.license}}</span>
         </div>
         <hr class="post-header-line" style="border: dashed 1px var(--beige-line-strong, #B59C82);">
         <span class="post-information-title">SHARE</span>
