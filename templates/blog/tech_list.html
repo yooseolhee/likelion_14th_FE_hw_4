@@ -28,96 +28,98 @@
             </div>
         </div>
         <div class="tech-notes-header-tag">
-            <span class="tech-notes-header-tag-select">All</span>
-            <span class="tech-notes-header-tag-unselect">Frontend</span>
-            <span class="tech-notes-header-tag-unselect">TypeScript</span>
-            <span class="tech-notes-header-tag-unselect">AI</span>
-            <span class="tech-notes-header-tag-unselect">Performance</span>
-            <span class="tech-notes-header-tag-unselect">Series · DS</span>
+            <span class="tech-notes-header-tag-select">ALL</span>
+            <span class="tech-notes-header-tag-unselect">{{categories.0.label}}</span>
+            <span class="tech-notes-header-tag-unselect">{{categories.1.label}}</span>
+            <span class="tech-notes-header-tag-unselect">{{categories.2.label}}</span>
+            <span class="tech-notes-header-tag-unselect">{{categories.3.label}}</span>
+            <span class="tech-notes-header-tag-unselect">{{categories.4.label}}</span>
         </div>
         <div class="tech-notes-content">
-            <div class="tech-notes-list">
-                <span class="tech-notes-list-date">2026.04.28</span>
+            <a class="tech-notes-list" href="{{posts.0.get_absolute_url}}">
+                <span class="tech-notes-list-date">{{posts.0.date_display}}</span>
                 <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">손에 익는 디자인 시스템 만들기</div>
-                    <div class="tech-notes-list-subtitle">Designing a system that fits the hand</div>
+                    <div class="tech-notes-list-title">{{posts.0.title}}</div>
+                    <div class="tech-notes-list-subtitle">{{posts.0.subtitle}}</div>
                     <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">Frontend</span>
-                        <span class="tech-notes-header-tag-unselect">#design-system</span>
-                        <span class="tech-notes-header-tag-unselect">#tokens</span>
-                        <span class="tech-notes-header-tag-unselect">#css</span>
+                        <span class="tech-notes-header-tag-select">{{posts.0.category.label}}</span>
+                        {% for tag in posts.0.tags.all %}
+                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="tech-notes-list-time">8 min</div>
-            </div>
-            <div class="tech-notes-list">
-                <span class="tech-notes-list-date">2026.04.21</span>
+                <div class="tech-notes-list-time">{{posts.0.read_minutes}} min</div>
+            </a>
+            <a class="tech-notes-list" href="{{posts.1.get_absolute_url}}">
+                <span class="tech-notes-list-date">{{posts.1.date_display}}</span>
                 <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">tRPC와 함께한 1년: 좋았던 것, 불편했던 것</div>
-                    <div class="tech-notes-list-subtitle">A year with tRPC</div>
+                    <div class="tech-notes-list-title">{{posts.1.title}}</div>
+                    <div class="tech-notes-list-subtitle">{{posts.1.subtitle}}</div>
                     <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">TypeScript</span>
-                        <span class="tech-notes-header-tag-unselect">#trpc</span>
-                        <span class="tech-notes-header-tag-unselect">#types</span>
-                        <span class="tech-notes-header-tag-unselect">#dx</span>
+                        <span class="tech-notes-header-tag-select">{{posts.1.category.label}}</span>
+                        {% for tag in posts.1.tags.all %}
+                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="tech-notes-list-time">6 min</div>
-            </div>
-            <div class="tech-notes-list">
-                <span class="tech-notes-list-date">2026.04.14</span>
+                <div class="tech-notes-list-time">{{posts.1.read_minutes}} min</div>
+            </a>
+            <a class="tech-notes-list" href="{{posts.2.get_absolute_url}}">
+                <span class="tech-notes-list-date">{{posts.2.date_display}}</span>
                 <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">CSS Container Queries, 결국 쓰게 되더라</div>
-                    <div class="tech-notes-list-subtitle">I came around to container queries</div>
+                    <div class="tech-notes-list-title">{{posts.2.title}}</div>
+                    <div class="tech-notes-list-subtitle">{{posts.2.subtitle}}</div>
                     <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">Frontend</span>
-                        <span class="tech-notes-header-tag-unselect">#css</span>
-                        <span class="tech-notes-header-tag-unselect">#layout</span>
+                        <span class="tech-notes-header-tag-select">{{posts.2.category.label}}</span>
+                        {% for tag in posts.2.tags.all %}
+                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="tech-notes-list-time">5 min</div>
-            </div>
-            <div class="tech-notes-list">
-                <span class="tech-notes-list-date">2026.04.07</span>
+                <div class="tech-notes-list-time">{{posts.2.read_minutes}} min</div>
+            </a>
+            <a class="tech-notes-list" href="{{posts.3.get_absolute_url}}">
+                <span class="tech-notes-list-date">{{posts.3.date_display}}</span>
                 <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">Vibe coding 다음 단계 — 워크플로우 만들기</div>
-                    <div class="tech-notes-list-subtitle">Beyond vibe coding</div>
+                    <div class="tech-notes-list-title">{{posts.3.title}}</div>
+                    <div class="tech-notes-list-subtitle">{{posts.3.subtitle}}</div>
                     <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">AI</span>
-                        <span class="tech-notes-header-tag-unselect">#ai</span>
-                        <span class="tech-notes-header-tag-unselect">#workflow</span>
-                        <span class="tech-notes-header-tag-unselect">#agent</span>
+                        <span class="tech-notes-header-tag-select">{{posts.3.category.label}}</span>
+                        {% for tag in posts.3.tags.all %}
+                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="tech-notes-list-time">12 min</div>
-            </div>
-            <div class="tech-notes-list">
-                <span class="tech-notes-list-date">2026.03.30</span>
+                <div class="tech-notes-list-time">{{posts.3.read_minutes}} min</div>
+            </a>
+            <a class="tech-notes-list" href="{{posts.4.get_absolute_url}}">
+                <span class="tech-notes-list-date">{{posts.4.date_display}}</span>
                 <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">React 19 컴파일러로 useMemo를 지웠다</div>
-                    <div class="tech-notes-list-subtitle">Removing useMemo with React 19</div>
+                    <div class="tech-notes-list-title">{{posts.4.title}}</div>
+                    <div class="tech-notes-list-subtitle">{{posts.4.subtitle}}</div>
                     <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">Performance</span>
-                        <span class="tech-notes-header-tag-unselect">#react</span>
-                        <span class="tech-notes-header-tag-unselect">#perf</span>
+                        <span class="tech-notes-header-tag-select">{{posts.4.category.label}}</span>
+                        {% for tag in posts.4.tags.all %}
+                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="tech-notes-list-time">7 min</div>
-            </div>
-            <div class="tech-notes-list">
-                <span class="tech-notes-list-date">2026.03.22</span>
+                <div class="tech-notes-list-time">{{posts.4.read_minutes}} min</div>
+            </a>
+            <a class="tech-notes-list" href="{{posts.5.get_absolute_url}}">
+                <span class="tech-notes-list-date">{{posts.5.date_display}}</span>
                 <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">디자인 토큰을 코드로 옮기는 5가지 방법</div>
-                    <div class="tech-notes-list-subtitle">Five ways to ship design tokens</div>
+                    <div class="tech-notes-list-title">{{posts.5.title}}</div>
+                    <div class="tech-notes-list-subtitle">{{posts.5.subtitle}}</div>
                     <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">Series · DS</span>
-                        <span class="tech-notes-header-tag-unselect">#design-system</span>
-                        <span class="tech-notes-header-tag-unselect">#series</span>
-                        <span class="tech-notes-header-tag-unselect">#5/8</span>
+                        <span class="tech-notes-header-tag-select">{{posts.5.category.label}}</span>
+                        {% for tag in posts.5.tags.all %}
+                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="tech-notes-list-time">9 min</div>
-            </div>
+                <div class="tech-notes-list-time">{{posts.5.read_minutes}} min</div>
+            </a>
         </div>
         <div>
         </div>

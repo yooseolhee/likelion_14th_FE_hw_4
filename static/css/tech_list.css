@@ -1,3 +1,7 @@
+a{
+    text-decoration : none;
+}
+
 .tech-notes{
     display: flex;
     padding: 56px 96px;
