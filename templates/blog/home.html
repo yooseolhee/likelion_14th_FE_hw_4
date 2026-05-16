@@ -10,21 +10,21 @@
     <div class="Hero-inner">
     <div>
         <span class="Hero-welcome">
-            welcome · 환영합니다
+            {{hero.eyebrow_left}}
         </span>
 
         <span class="Hero-date">
-            — 2026, week 18
+            {{hero.eyebrow_right}}
         </span>
     </div>
 
     <div class="Hero-title">
-        기록하는 일이<br>성장이 되는 곳<span class="Hero-title-dot">.</span>
+        {{hero.h1_line1}}<br>{{hero.h1_line2}}<span class="Hero-title-dot">.</span>
     </div>
 
     <div class="Hero-subtitle">
-        아기사자(BL)가 매일 조금씩 적어가는 노트입니다.<br>
-        기술, 프로젝트, 그리고 평범한 하루의 단상까지 — 천천히 쌓아 둡니다.
+        {{hero.bio_line1}}<br>
+        {{hero.bio_line2}}
     </div>
 
     <div class="Hero-button">
@@ -46,7 +46,7 @@
         </svg>
         </span>
         <span class="Hero-now-writing">now writing</span>
-        <span class="Hero-now-writing-title">디자인 토큰 시리즈 6편</span>
+        <span class="Hero-now-writing-title">{{hero.now_writing}}</span>
     </div>
     </div>
 </div>
@@ -68,11 +68,11 @@
                     </div>
                     <div class="todayNote-card-1-content">
                         <div class="todayNote-card-1-content-frame">
-                            <span class="todayNote-card-1-content-frame-fe">Frontend</span>
-                            <span class="todayNote-card-1-content-frame-series">series · 5/8</span>
-                            <span class="todayNote-card-1-content-frame-date">2026.04.28 · 8 min</span>
+                            <span class="todayNote-card-1-content-frame-fe">{{featured.category.label}}</span>
+                            <span class="todayNote-card-1-content-frame-series">{{featured.series_label}}</span>
+                            <span class="todayNote-card-1-content-frame-date">{{featured.date_display}} · {{featured.read_minutes}} min</span>
                         </div>
-                        <div class="todayNote-card-1-content-title">손에 익는 디자인 시스템 만들기</div>
+                        <div class="todayNote-card-1-content-title">{{featured.title}}</div>
                         <div class="todayNote-card-1-content-subtitle">토큰을 짓는 일은 결국 이름을 짓는 일이다. 작은 결정에 이름을 붙이는 일 — 그게 시스템이다.</div>
                         <div class="todayNote-card-1-content-link">이어 읽기 →</div>
                     </div>
@@ -82,38 +82,38 @@
                 <span class="todayNote-card-2-latest">LATEST · 최근 5편</span>
                 <div class="todayNote-card-2-list">
                     <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">TypeScript</span>
-                        <span class="todayNote-card-2-date">04.21</span>
+                        <span class="todayNote-card-2-label">{{others.0.category.label}}</span>
+                        <span class="todayNote-card-2-date">{{others.0.date_display|slice:"5:"}}</span>
                     </div>
                     <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="todayNote-card-2-list-title">tRPC와 함께한 1년: 좋았던 것, 불편했던 것</div>
+                        <div class="todayNote-card-2-list-title">{{others.0.title}}</div>
                     </a>
                 </div>
                 <div class="todayNote-card-2-list">
                     <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">Frontend</span>
-                        <span class="todayNote-card-2-date">04.14</span>
+                        <span class="todayNote-card-2-label">{{others.1.category.label}}</span>
+                        <span class="todayNote-card-2-date">{{others.1.date_display|slice:"5:"}}</span>
                     </div>
                     <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="todayNote-card-2-list-title">CSS Container Queries, 결국 쓰게 되더라</div>
+                        <div class="todayNote-card-2-list-title">{{others.1.title}}</div>
                     </a>
                 </div>
                 <div class="todayNote-card-2-list">
                     <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">AI</span>
-                        <span class="todayNote-card-2-date">04.07</span>
+                        <span class="todayNote-card-2-label">{{others.2.category.label}}</span>
+                        <span class="todayNote-card-2-date">{{others.2.date_display|slice:"5:"}}</span>
                     </div>
                     <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="todayNote-card-2-list-title">Vibe coding 다음 단계 — 워크플로우 만들기</div>
+                        <div class="todayNote-card-2-list-title">{{others.2.title}}</div>
                     </a>
                 </div>
                 <div class="todayNote-card-2-list">
                     <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">Performance</span>
-                        <span class="todayNote-card-2-date">03.30</span>
+                        <span class="todayNote-card-2-label">{{others.3.category.label}}</span>
+                        <span class="todayNote-card-2-date">{{others.3.date_display|slice:"5:"}}</span>
                     </div>
                     <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="todayNote-card-2-list-title">React 19 컴파일러로 useMemo를 지웠다</div>
+                        <div class="todayNote-card-2-list-title">{{others.3.title}}</div>
                     </a>
                 </div>
                 <div class="todayNote-card-2-list">
