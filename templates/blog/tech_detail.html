@@ -4,89 +4,201 @@
 {% block title %}{{ post.title }} · {{ BRAND_NAME }}{% endblock %}
 
 {% block content %}
-{# TODO: W1 — 본문/TOC/Meta. W2 — 댓글 섹션. #}
 <link rel="stylesheet" href="{% static 'css/tech_detail.css' %}">
 
 <div class="post">
+
     <div class="post-index">
         <div class="post-index-title">ON THIS PAGE</div>
-        <div class="post-index-list-select">1. {{sections.1.text}}</div>
-        <div class="post-index-list-unselect">2. {{sections.5.text}}</div>
-        <div class="post-index-list-unselect">3. {{sections.7.text}}</div>
-        <div class="post-index-list-unselect">4. {{sections.9.text}}</div>
+
+        {% for s in sections %}
+            {% if s.kind == 'h2' %}
+                <div class="post-index-list-unselect">
+                    {{ s.text }}
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
+
     <div class="post-inner">
+
         <div class="post-header-frame">
-            <span class="post-header-frame-fe">{{post.category.label}}</span>
-            <span class="post-header-frame-date">{{post.date_display}} · {{post.read_minutes}} min · {{post.series_label}}</span>
+            <span class="post-header-frame-fe">
+                {{ post.category.label }}
+            </span>
+
+            <span class="post-header-frame-date">
+                {{ post.date_display }} ·
+                {{ post.read_minutes }} min ·
+                {{ post.series_label }}
+            </span>
         </div>
-        <div class="post-header-title">{{post.title}}</div>
-        <div class="post-header-subtitle"> {{post.subtitle}} — tokens, units, and the boring middle.</div>
-        <hr class="post-header-line">
-        <div class="post-content-description">{{sections.0.text}}</div>
-        <div class="post-content-title">1. {{sections.1.text}}</div>
-        <div class="post-content-str">{{sections.2.text}}</div>
-        <div class="post-content-code">
-            <pre class="post-content-code-str">{{sections.3.text}}</pre>
+
+        <div class="post-header-title">
+            {{ post.title }}
         </div>
-        <div class="post-content-str">{{sections.4.text}}</div>
+
+        {% if post.subtitle %}
+        <div class="post-header-subtitle">
+            {{ post.subtitle }}
+        </div>
+        {% endif %}
+
         <hr class="post-header-line">
-        <div class="post-comments-num">comments · {{post.comment|length}}</div>
+
+        <!-- section 자동 렌더링 -->
+        {% for s in sections %}
+
+            <!-- 설명 -->
+            {% if s.kind == 'description' %}
+                <div class="post-content-description">
+                    {{ s.text }}
+                </div>
+
+            <!-- 일반 문단 -->
+            {% elif s.kind == 'p' %}
+                <div class="post-content-str">
+                    {{ s.text }}
+                </div>
+
+            <!-- 제목 -->
+            {% elif s.kind == 'h2' %}
+                <div class="post-content-title">
+                    {{ s.text }}
+                </div>
+
+            <!-- 코드 -->
+            {% elif s.kind == 'code' and s.text %}
+                <div class="post-content-code">
+                    <pre class="post-content-code-str">{{ s.text }}</pre>
+                </div>
+
+            <!-- 인용 -->
+            {% elif s.kind == 'quote' %}
+                <blockquote class="post-content-quote">
+                    {{ s.text }}
+                </blockquote>
+
+            <!-- 이미지 -->
+            {% elif s.kind == 'img' %}
+                <img
+                    src="{{ s.src }}"
+                    alt="{{ s.alt }}"
+                    class="post-content-img"
+                >
+
+            {% endif %}
+
+        {% endfor %}
+
+        <hr class="post-header-line">
+
+        <!-- 댓글 -->
+        <div class="post-comments-num">
+            comments · {{ post.comment|length }}
+        </div>
+
         <div class="post-comments-post">
             <div class="post-comments-description">
-                <span class="post-comments-login-str">댓글을 남기려면 로그인이 필요해요</span>
-                <span class="post-comments-login-substr">Sign in to leave a note on this page</span>
+                <span class="post-comments-login-str">
+                    댓글을 남기려면 로그인이 필요해요
+                </span>
+
+                <span class="post-comments-login-substr">
+                    Sign in to leave a note on this page
+                </span>
             </div>
-            <span class="post-comments-btn">Sign in →</span>
+
+            <span class="post-comments-btn">
+                Sign in →
+            </span>
         </div>
+
+        <!-- 샘플 댓글 -->
         <div class="post-comments">
             <span class="post-comments-img">JM</span>
+
             <div class="post-comments-content">
                 <div class="post-comments-user">
                     <span class="post-comments-id">jaemin</span>
                     <span class="post-comments-date">2026.04.28</span>
                 </div>
-                <span class="post-comments-str">토큰 네이밍 진짜 어렵죠. semantic 레벨까지 가면 의견 갈리고요.</span>
+
+                <span class="post-comments-str">
+                    토큰 네이밍 진짜 어렵죠. semantic 레벨까지 가면 의견 갈리고요.
+                </span>
             </div>
         </div>
+
         <hr class="post-header-line">
+
         <div class="post-comments">
             <span class="post-comments-img">SY</span>
+
             <div class="post-comments-content">
                 <div class="post-comments-user">
                     <span class="post-comments-id">soyun</span>
                     <span class="post-comments-date">2026.04.29</span>
                 </div>
-                <span class="post-comments-str">다음 편 기다릴게요. 빌드 파이프라인 부분 궁금해요.</span>
+
+                <span class="post-comments-str">
+                    다음 편 기다릴게요. 빌드 파이프라인 부분 궁금해요.
+                </span>
             </div>
         </div>
+
     </div>
+
+    <!-- 우측 메타 -->
     <div class="post-information">
-        <span class="post-information-title">META</span>
+
+        <span class="post-information-title">
+            META
+        </span>
+
         <div class="post-information-match">
             <span class="post-information-l">author</span>
-            <span class="post-information-r">{{post.author}}</span>
+            <span class="post-information-r">아기사자</span>
         </div>
+
         <div class="post-information-match">
             <span class="post-information-l">edited</span>
-            <span class="post-information-r">{{post.edited_display}}</span>
+            <span class="post-information-r">
+                {{ post.edited_display }}
+            </span>
         </div>
+
         <div class="post-information-match">
             <span class="post-information-l">views</span>
-            <span class="post-information-r">{{post.views}}</span>
+            <span class="post-information-r">
+                {{ post.views }}
+            </span>
         </div>
+
         <div class="post-information-match">
             <span class="post-information-l">license</span>
-            <span class="post-information-r">{{post.license}}</span>
+            <span class="post-information-r">
+                {{ post.license }}
+            </span>
         </div>
-        <hr class="post-header-line" style="border: dashed 1px var(--beige-line-strong, #B59C82);">
-        <span class="post-information-title">SHARE</span>
+
+        <hr
+            class="post-header-line"
+            style="border: dashed 1px var(--beige-line-strong, #B59C82);"
+        >
+
+        <span class="post-information-title">
+            SHARE
+        </span>
+
         <div class="post-information-tag">
             <span class="post-information-btn">copy⎘</span>
             <span class="post-information-btn">x</span>
             <span class="post-information-btn">rss</span>
         </div>
+
     </div>
+
 </div>
 
 {% endblock %}
