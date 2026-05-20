@@ -28,101 +28,62 @@
             </div>
         </div>
         <div class="tech-notes-header-tag">
-            <span class="tech-notes-header-tag-select">ALL</span>
-            <span class="tech-notes-header-tag-unselect">{{categories.0.label}}</span>
-            <span class="tech-notes-header-tag-unselect">{{categories.1.label}}</span>
-            <span class="tech-notes-header-tag-unselect">{{categories.2.label}}</span>
-            <span class="tech-notes-header-tag-unselect">{{categories.3.label}}</span>
-            <span class="tech-notes-header-tag-unselect">{{categories.4.label}}</span>
+
+            <span class="tech-notes-header-tag-select">
+                ALL
+            </span>
+
+            {% for category in categories %}
+            <span class="tech-notes-header-tag-unselect">
+                {{ category.label }}
+            </span>
+            {% endfor %}
+
         </div>
         <div class="tech-notes-content">
-            <a class="tech-notes-list" href="{{posts.0.get_absolute_url}}">
-                <span class="tech-notes-list-date">{{posts.0.date_display}}</span>
-                <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">{{posts.0.title}}</div>
-                    <div class="tech-notes-list-subtitle">{{posts.0.subtitle}}</div>
-                    <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">{{posts.0.category.label}}</span>
-                        {% for tag in posts.0.tags.all %}
-                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
-                        {% endfor %}
-                    </div>
+
+        {% for post in posts %}
+
+        <a class="tech-notes-list" href="{{ post.get_absolute_url }}">
+
+            <span class="tech-notes-list-date">
+                {{ post.date_display }}
+            </span>
+
+            <div class="tech-notes-list-content">
+
+                <div class="tech-notes-list-title">
+                    {{ post.title }}
                 </div>
-                <div class="tech-notes-list-time">{{posts.0.read_minutes}} min</div>
-            </a>
-            <a class="tech-notes-list" href="{{posts.1.get_absolute_url}}">
-                <span class="tech-notes-list-date">{{posts.1.date_display}}</span>
-                <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">{{posts.1.title}}</div>
-                    <div class="tech-notes-list-subtitle">{{posts.1.subtitle}}</div>
-                    <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">{{posts.1.category.label}}</span>
-                        {% for tag in posts.1.tags.all %}
-                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
-                        {% endfor %}
-                    </div>
+
+                <div class="tech-notes-list-subtitle">
+                    {{ post.subtitle }}
                 </div>
-                <div class="tech-notes-list-time">{{posts.1.read_minutes}} min</div>
-            </a>
-            <a class="tech-notes-list" href="{{posts.2.get_absolute_url}}">
-                <span class="tech-notes-list-date">{{posts.2.date_display}}</span>
-                <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">{{posts.2.title}}</div>
-                    <div class="tech-notes-list-subtitle">{{posts.2.subtitle}}</div>
-                    <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">{{posts.2.category.label}}</span>
-                        {% for tag in posts.2.tags.all %}
-                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
-                        {% endfor %}
-                    </div>
+
+                <div class="tech-notes-header-tag">
+
+                    <span class="tech-notes-header-tag-select">
+                        {{ post.category.label }}
+                    </span>
+
+                    {% for tag in post.tags.all %}
+                    <span class="tech-notes-header-tag-unselect">
+                        #{{ tag.label }}
+                    </span>
+                    {% endfor %}
+
                 </div>
-                <div class="tech-notes-list-time">{{posts.2.read_minutes}} min</div>
-            </a>
-            <a class="tech-notes-list" href="{{posts.3.get_absolute_url}}">
-                <span class="tech-notes-list-date">{{posts.3.date_display}}</span>
-                <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">{{posts.3.title}}</div>
-                    <div class="tech-notes-list-subtitle">{{posts.3.subtitle}}</div>
-                    <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">{{posts.3.category.label}}</span>
-                        {% for tag in posts.3.tags.all %}
-                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="tech-notes-list-time">{{posts.3.read_minutes}} min</div>
-            </a>
-            <a class="tech-notes-list" href="{{posts.4.get_absolute_url}}">
-                <span class="tech-notes-list-date">{{posts.4.date_display}}</span>
-                <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">{{posts.4.title}}</div>
-                    <div class="tech-notes-list-subtitle">{{posts.4.subtitle}}</div>
-                    <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">{{posts.4.category.label}}</span>
-                        {% for tag in posts.4.tags.all %}
-                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="tech-notes-list-time">{{posts.4.read_minutes}} min</div>
-            </a>
-            <a class="tech-notes-list" href="{{posts.5.get_absolute_url}}">
-                <span class="tech-notes-list-date">{{posts.5.date_display}}</span>
-                <div class="tech-notes-list-content">
-                    <div class="tech-notes-list-title">{{posts.5.title}}</div>
-                    <div class="tech-notes-list-subtitle">{{posts.5.subtitle}}</div>
-                    <div class="tech-notes-header-tag">
-                        <span class="tech-notes-header-tag-select">{{posts.5.category.label}}</span>
-                        {% for tag in posts.5.tags.all %}
-                        <span class="tech-notes-header-tag-unselect">#{{tag.label}}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="tech-notes-list-time">{{posts.5.read_minutes}} min</div>
-            </a>
-        </div>
-        <div>
-        </div>
+
+            </div>
+
+            <div class="tech-notes-list-time">
+                {{ post.read_minutes }} min
+            </div>
+
+        </a>
+
+        {% endfor %}
+
     </div>
 </div>
 {% endblock %}

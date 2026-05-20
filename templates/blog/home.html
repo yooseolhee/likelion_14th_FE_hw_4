@@ -79,52 +79,33 @@
                 </div>
             </a>
             <div class="todayNote-card-2">
-                <span class="todayNote-card-2-latest">LATEST · 최근 {{others|length}}편</span>
+                <span class="todayNote-card-2-latest">
+                    LATEST · 최근 {{ others|length }}편
+                </span>
+
+                {% for post in others %}
                 <div class="todayNote-card-2-list">
+
                     <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">{{others.0.category.label}}</span>
-                        <span class="todayNote-card-2-date">{{others.0.date_display|slice:"5:"}}</span>
+
+                        <span class="todayNote-card-2-label">
+                            {{ post.category.label }}
+                        </span>
+
+                        <span class="todayNote-card-2-date">
+                            {{ post.date_display|slice:"5:" }}
+                        </span>
+
                     </div>
-                    <a href="{% url 'tech_detail' 'a-year-with-trpc' %}">
-                        <div class="todayNote-card-2-list-title">{{others.0.title}}</div>
+
+                    <a href="{% url 'tech_detail' post.slug %}">
+                        <div class="todayNote-card-2-list-title">
+                            {{ post.title }}
+                        </div>
                     </a>
+
                 </div>
-                <div class="todayNote-card-2-list">
-                    <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">{{others.1.category.label}}</span>
-                        <span class="todayNote-card-2-date">{{others.1.date_display|slice:"5:"}}</span>
-                    </div>
-                    <a href="{% url 'tech_detail' 'i-came-around-to-container-queries' %}">
-                        <div class="todayNote-card-2-list-title">{{others.1.title}}</div>
-                    </a>
-                </div>
-                <div class="todayNote-card-2-list">
-                    <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">{{others.2.category.label}}</span>
-                        <span class="todayNote-card-2-date">{{others.2.date_display|slice:"5:"}}</span>
-                    </div>
-                    <a href="{% url 'tech_detail' 'beyond-vibe-coding' %}">
-                        <div class="todayNote-card-2-list-title">{{others.2.title}}</div>
-                    </a>
-                </div>
-                <div class="todayNote-card-2-list">
-                    <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">{{others.3.category.label}}</span>
-                        <span class="todayNote-card-2-date">{{others.3.date_display|slice:"5:"}}</span>
-                    </div>
-                    <a href="{% url 'tech_detail' 'removing-usememo-with-react-19' %}">
-                        <div class="todayNote-card-2-list-title">{{others.3.title}}</div>
-                    </a>
-                </div>
-                <div class="todayNote-card-2-list">
-                    <div class="todayNote-card-2-list-frame">
-                        <span class="todayNote-card-2-label">Series · DS</span>
-                        <span class="todayNote-card-2-date">03.22</span>
-                    </div>
-                    <a href="{% url 'tech_detail' 'five-ways-to-ship-design-tokens' %}">
-                        <div class="todayNote-card-2-list-title">디자인 토큰을 코드로 옮기는 5가지 방법</div>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
